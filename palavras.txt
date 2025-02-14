@@ -1,0 +1,6 @@
+continue
+ok
+parar
+pular
+voltar
+reiniciar
