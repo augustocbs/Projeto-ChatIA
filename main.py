@@ -81,3 +81,6 @@ def main():
         print("\nFinalizando script...")
         keyboard_handler.finalizar()
         driver_manager.finalizar()
+
+if __name__ == "__main__":
+    main()
