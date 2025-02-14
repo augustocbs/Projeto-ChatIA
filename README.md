@@ -36,9 +36,11 @@ google-chrome --remote-debugging-port=9222
 ### Formato do arquivo palavras.txt
 ```
 continue
-próximo
-avançar
-prosseguir
+ok
+parar
+pular
+voltar
+reiniciar
 ```
 
 ### Formato do arquivo mensagens_iniciais.txt
