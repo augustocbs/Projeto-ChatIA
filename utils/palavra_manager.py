@@ -20,6 +20,9 @@ class PalavraManager:
         if not self.palavras:
             return "continue"
         return self.palavras[self.indice_atual % len(self.palavras)]
+    
+    def obter_palavras(self):
+        return self.palavras
         
     def mostrar_menu(self):
         print("\nPalavras disponíveis:")

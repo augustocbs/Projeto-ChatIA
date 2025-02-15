@@ -25,7 +25,7 @@ def main():
         # Mostra o menu inicial
         mensagem_inicial, palavra_atual, slug_svg = start_menu_manager.main()
 
-        driver_manager = DriverManager(driver, svg_manager.obter_svg_list(slug_svg))
+        driver_manager = DriverManager(driver, slug_svg)
         palavra_manager.indice_atual = palavra_atual
         if mensagem_inicial is not None:
             driver_manager.enviar_mensagem(mensagem_inicial)
