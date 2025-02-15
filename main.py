@@ -5,6 +5,7 @@ from utils.keyboard_handler import KeyboardHandler
 from utils.palavra_manager import PalavraManager
 from utils.driver_manager import DriverManager
 from utils.mensagem_inicial_manager import MensagemInicialManager
+from utils.svg_manager import SvgManager
 
 def main():
     # Configurações do Chrome
@@ -12,12 +13,19 @@ def main():
     chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
     
     # Inicializa os gerenciadores
+    svg_manager = SvgManager()
     driver = webdriver.Chrome(options=chrome_options)
     keyboard_handler = KeyboardHandler()
     palavra_manager = PalavraManager()
-    driver_manager = DriverManager(driver)
+    driver_manager = DriverManager(driver, svg_manager.obter_svg('char'))
     mensagem_inicial_manager = MensagemInicialManager()
     
+    # Seleciona o svg do botão a ser utilizado
+    svg = svg_manager.selecionar_svg()
+    if svg:
+        print("\nSelecionado SVG")
+        driver_manager = DriverManager(driver, svg)
+
     # Seleciona e envia a mensagem inicial
     mensagem_inicial = mensagem_inicial_manager.selecionar_mensagem()
     if mensagem_inicial:

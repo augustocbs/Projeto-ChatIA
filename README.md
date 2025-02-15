@@ -49,6 +49,18 @@ bem-vindo|Olá! Seja bem-vindo ao nosso grupo.
 apresentacao|Oi pessoal! Sou o moderador do grupo.
 ```
 
+### Formato do arquivo svg_play_paths.txt
+```
+chat1|M15.1918 8.90615C15.6381 8.45983 16.3618...
+chat2|M3.113 6.178C2.448 4.073 4.64 2.202 6.6...
+```
+
+### Formato do arquivo svg_stop_paths.txt
+```
+chat1|M15.1918 8.90615C15.6381 8.45983 16.3618...
+chat2|M3.113 6.178C2.448 4.073 4.64 2.202 6.6...
+```
+
 ## Como Executar
 
 1. Certifique-se de que o Chrome está aberto com a porta de debugging (9222)
@@ -56,6 +68,11 @@ apresentacao|Oi pessoal! Sou o moderador do grupo.
 ```bash
 python main.py
 ```
+3. Prepare os arquivos de configuração:
+   - palavras.txt: Lista de palavras que serão enviadas (uma por linha)
+   - mensagens_iniciais.txt: Mensagens iniciais no formato slug|mensagem
+   - svg_play_paths.txt: Caminhos SVG para o ícone de play
+   - svg_stop_paths.txt: Caminhos SVG para o ícone de stop
 
 ## Comandos Durante a Execução
 
@@ -79,6 +96,10 @@ python main.py
    - Mostra menu com todas as palavras disponíveis
    - Mantém a palavra atual se pressionar Enter
 
+4. **Gerenciamento de SVGs**
+   - Carrega e valida SVGs auxiliares para ícones de play e stop
+   - Permite selecionar SVGs a partir de uma lista
+
 ## Tratamento de Erros
 
 - Máximo de 3 falhas consecutivas antes de encerrar
@@ -91,13 +112,16 @@ python main.py
 ```
 ├── main.py                     # Script principal
 ├── requirements.txt            # Dependências do projeto
-├── palavras.txt               # Lista de palavras para envio
-├── mensagens_iniciais.txt     # Mensagens iniciais com slugs
+├── palavras.txt                # Lista de palavras para envio
+├── mensagens_iniciais.txt      # Mensagens iniciais com slugs
+├── svg_play_paths.txt          # Caminhos SVG para ícone de play
+├── svg_stop_paths.txt          # Caminhos SVG para ícone de stop
 └── utils/
-    ├── driver_manager.py      # Gerenciamento do Selenium
-    ├── keyboard_handler.py    # Monitoramento do teclado
-    ├── palavra_manager.py     # Gerenciamento das palavras
-    └── mensagem_inicial_manager.py  # Gerenciamento das mensagens iniciais
+    ├── driver_manager.py       # Gerenciamento do Selenium
+    ├── keyboard_handler.py     # Monitoramento do teclado
+    ├── palavra_manager.py      # Gerenciamento das palavras
+    ├── mensagem_inicial_manager.py  # Gerenciamento das mensagens iniciais
+    └── svg_manager.py          # Gerenciamento dos SVGs
 ```
 
 ## Regras e Boas Práticas
