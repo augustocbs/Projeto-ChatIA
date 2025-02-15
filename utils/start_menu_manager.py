@@ -1,7 +1,7 @@
 from utils.mensagem_inicial_manager import MensagemInicialManager
 from utils.palavra_manager import PalavraManager
 from utils.svg_manager import SvgManager
-from env import MENSAGEM_PADRAO, POS_PALAVRA_PADRAO, SVG_PADRAO
+from utils.env import POS_PALAVRA_PADRAO, SVG_PADRAO
 
 class StartMenuManager:
     def __init__(self):

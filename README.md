@@ -32,6 +32,8 @@ google-chrome --remote-debugging-port=9222
 
    - `palavras.txt`: Lista de palavras que serão enviadas (uma por linha)
    - `mensagens_iniciais.txt`: Mensagens iniciais no formato `slug|mensagem`
+   - `svg_play_paths.txt`: Caminhos SVG para o ícone de play
+   - `svg_stop_paths.txt`: Caminhos SVG para o ícone de stop
 
 ### Formato do arquivo palavras.txt
 ```
@@ -122,6 +124,7 @@ python main.py
     ├── palavra_manager.py      # Gerenciamento das palavras
     ├── mensagem_inicial_manager.py  # Gerenciamento das mensagens iniciais
     └── svg_manager.py          # Gerenciamento dos SVGs
+    └── env.py                  # Valores a serem usados globalmente
 ```
 
 ## Regras e Boas Práticas
