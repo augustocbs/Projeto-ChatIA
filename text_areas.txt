@@ -1,0 +1,2 @@
+char|textarea|CSS_SELECTOR
+gpt|prompt-textarea|ID

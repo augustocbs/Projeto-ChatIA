@@ -69,6 +69,9 @@ class SvgManager:
     def obter_svg(self, slug):
         return self.svgs.get(slug)
     
+    def obter_svg_slug_atual(self):
+        return self.svgs.keys()
+    
     def selecionar_svg(self):
         if not self.listar_svgs():
             return None
