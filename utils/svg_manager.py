@@ -1,6 +1,4 @@
 import re
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
 
 class SvgManager:
     def __init__(self, arquivo='svg_play_paths.txt', auxiliares=['svg_stop_paths.txt']):
@@ -62,6 +60,11 @@ class SvgManager:
             print(f"\nSlug: {slug}")
             print(f"Preview: {preview}")
         return True
+    
+    def obter_svg_list(self, slug):
+        svgs = self.validar_e_obter_svgs_auxiliares(slug)
+        svgs["play"] = self.svgs[slug]
+        return svgs
     
     def obter_svg(self, slug):
         return self.svgs.get(slug)

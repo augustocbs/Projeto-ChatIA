@@ -20,24 +20,15 @@ def main():
         driver = webdriver.Chrome(options=chrome_options)
         keyboard_handler = KeyboardHandler()
         palavra_manager = PalavraManager()
-        driver_manager = DriverManager(driver, svg_manager.obter_svg_list('char'))
         start_menu_manager = StartMenuManager()
         
         # Mostra o menu inicial
-        tipo_config, valor = start_menu_manager.mostrar_menu()
-        
-        if tipo_config == "mensagem" and valor:
-            print("\nEnviando mensagem inicial...")
-            if not driver_manager.enviar_mensagem(valor):
-                print("Falha ao enviar mensagem inicial. Continuando com o script...")
-            else:
-                time.sleep(2)
-        elif tipo_config == "palavra" and valor is not None:
-            palavra_manager.indice_atual = valor
-            print(f"\nPalavra inicial configurada: {palavra_manager.obter_palavra_atual()}")
-        elif tipo_config == "svg" and valor:
-            # driver_manager = DriverManager(driver, svg_manager.obter_svg(valor))
-            print(f"\nSVG inicial configurado, tipo de botão: {svg_manager.obter_svg_list('char')}")
+        mensagem_inicial, palavra_atual, slug_svg = start_menu_manager.main()
+
+        driver_manager = DriverManager(driver, svg_manager.obter_svg_list(slug_svg))
+        palavra_manager.indice_atual = palavra_atual
+        if mensagem_inicial is not None:
+            driver_manager.enviar_mensagem(mensagem_inicial)
         
         # Inicia o monitoramento do teclado
         keyboard_handler.iniciar_monitoramento()
