@@ -95,6 +95,7 @@ python main.py
 ├── mensagens_iniciais.txt     # Mensagens iniciais com slugs
 └── utils/
     ├── driver_manager.py      # Gerenciamento do Selenium
+    ├── start_menu_manager.py  # Gerenciamento do Menu Inicial
     ├── keyboard_handler.py    # Monitoramento do teclado
     ├── palavra_manager.py     # Gerenciamento das palavras
     └── mensagem_inicial_manager.py  # Gerenciamento das mensagens iniciais
