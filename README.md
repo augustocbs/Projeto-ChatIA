@@ -46,7 +46,7 @@ reiniciar
 ### Formato do arquivo mensagens_iniciais.txt
 ```
 bem-vindo|Olá! Seja bem-vindo ao nosso grupo.
-apresentacao|Oi pessoal! Sou o moderador do grupo.
+medieval|Me conte uma história de aventura medieval.
 ```
 
 ## Como Executar
