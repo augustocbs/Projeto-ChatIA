@@ -11,7 +11,8 @@ Este bot foi desenvolvido para automatizar o envio de mensagens em uma interface
 ## Dependências
 
 As seguintes bibliotecas Python são necessárias:
-```
+
+```text
 selenium
 keyboard
 ```
@@ -19,22 +20,27 @@ keyboard
 ## Configuração Inicial
 
 1. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 2. Inicie o Chrome com debugging remoto:
-```bash
-google-chrome --remote-debugging-port=9222
-```
+
+   ```bash
+   google-chrome --remote-debugging-port=9222
+   ```
 
 3. Prepare os arquivos de configuração:
 
    - `palavras.txt`: Lista de palavras que serão enviadas (uma por linha)
    - `mensagens_iniciais.txt`: Mensagens iniciais no formato `slug|mensagem`
+   - `svg_play_paths.txt`: Caminhos SVG para o ícone de play
+   - `svg_stop_paths.txt`: Caminhos SVG para o ícone de stop
 
 ### Formato do arquivo palavras.txt
-```
+
+```text
 continue
 ok
 parar
@@ -44,18 +50,41 @@ reiniciar
 ```
 
 ### Formato do arquivo mensagens_iniciais.txt
-```
+
+```text
 bem-vindo|Olá! Seja bem-vindo ao nosso grupo.
 medieval|Me conte uma história de aventura medieval.
+```
+
+### Formato do arquivo svg_play_paths.txt
+
+```text
+chat1|M15.1918 8.90615C15.6381 8.45983 16.3618...
+chat2|M3.113 6.178C2.448 4.073 4.64 2.202 6.6...
+```
+
+### Formato do arquivo svg_stop_paths.txt
+
+```text
+chat1|M15.1918 8.90615C15.6381 8.45983 16.3618...
+chat2|M3.113 6.178C2.448 4.073 4.64 2.202 6.6...
 ```
 
 ## Como Executar
 
 1. Certifique-se de que o Chrome está aberto com a porta de debugging (9222)
-2. Execute o script principal:
-```bash
-python main.py
-```
+
+2. Prepare os arquivos de configuração:
+   - `palavras.txt`: Lista de palavras que serão enviadas (uma por linha)
+   - `mensagens_iniciais.txt`: Mensagens iniciais no formato `slug|mensagem`
+   - `svg_play_paths.txt`: Caminhos SVG para o ícone de play
+   - `svg_stop_paths.txt`: Caminhos SVG para o ícone de stop
+
+3. Execute o script principal:
+
+   ```bash
+   python main.py
+   ```
 
 ## Comandos Durante a Execução
 
@@ -79,6 +108,10 @@ python main.py
    - Mostra menu com todas as palavras disponíveis
    - Mantém a palavra atual se pressionar Enter
 
+4. **Gerenciamento de SVGs**
+   - Carrega e valida SVGs auxiliares para ícones de play e stop
+   - Permite selecionar SVGs a partir de uma lista
+
 ## Tratamento de Erros
 
 - Máximo de 3 falhas consecutivas antes de encerrar
@@ -88,16 +121,20 @@ python main.py
 
 ## Estrutura do Projeto
 
-```
+```files
 ├── main.py                     # Script principal
 ├── requirements.txt            # Dependências do projeto
-├── palavras.txt               # Lista de palavras para envio
-├── mensagens_iniciais.txt     # Mensagens iniciais com slugs
+├── palavras.txt                # Lista de palavras para envio
+├── mensagens_iniciais.txt      # Mensagens iniciais com slugs
+├── svg_play_paths.txt          # Caminhos SVG para ícone de play
+├── svg_stop_paths.txt          # Caminhos SVG para ícone de stop
 └── utils/
-    ├── driver_manager.py      # Gerenciamento do Selenium
-    ├── keyboard_handler.py    # Monitoramento do teclado
-    ├── palavra_manager.py     # Gerenciamento das palavras
-    └── mensagem_inicial_manager.py  # Gerenciamento das mensagens iniciais
+    ├── driver_manager.py       # Gerenciamento do Selenium
+    ├── keyboard_handler.py     # Monitoramento do teclado
+    ├── palavra_manager.py      # Gerenciamento das palavras
+    ├── mensagem_inicial_manager.py  # Gerenciamento das mensagens iniciais
+    └── svg_manager.py          # Gerenciamento dos SVGs
+    └── env.py                  # Valores a serem usados globalmente
 ```
 
 ## Regras e Boas Práticas
